@@ -301,7 +301,11 @@ function initPageTransitions() {
 	});
 
 	// scroll to the top of the page
-	barba.hooks.afterEnter(() => {});
+	barba.hooks.afterEnter(() => {
+		setTimeout(() => {
+			scroll.scrollTo(0, 0);
+		}, 100);
+	});
 
 	barba.init({
 		sync: true,
@@ -354,7 +358,7 @@ function initPageTransitions() {
 		window.onresize = scroll.update();
 
 		scroll.on("scroll", () => ScrollTrigger.update());
-		document.onload = scroll.scrollTo(0, 0);
+
 		ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 			scrollTop(value) {
 				return scroll.scroll.instance.scroll.y;
