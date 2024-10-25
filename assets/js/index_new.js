@@ -303,7 +303,7 @@ function initPageTransitions() {
 	// scroll to the top of the page
 	barba.hooks.afterEnter(() => {
 		setTimeout(() => {
-			scroll.scrollTo(0, 0);
+			window.scrollTo(0, 0);
 		}, 100);
 	});
 
