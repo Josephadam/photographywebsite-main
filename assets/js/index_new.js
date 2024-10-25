@@ -302,9 +302,7 @@ function initPageTransitions() {
 
 	// scroll to the top of the page
 	barba.hooks.afterEnter(() => {
-		setTimeout(() => {
-			window.scrollTo(0, 0);
-		}, 100);
+		window.scrollTo(0, 0);
 	});
 
 	barba.init({
@@ -361,7 +359,7 @@ function initPageTransitions() {
 
 		ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 			scrollTop(value) {
-				return scroll.scroll.instance.scroll.y;
+				return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
 			}, // we don't have to define a scrollLeft because we're only scrolling vertically.
 			getBoundingClientRect() {
 				return {
